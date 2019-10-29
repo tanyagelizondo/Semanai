@@ -109,7 +109,7 @@ result
 
 def downloadIrisDataset():
     url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-    iris = np.genfromtxt(url, delimiter=',', dtype='object')
+    iris = np.genfromtxt(url, delimiter=',', dtype='float', usecols= [2])
     return iris
 "*Dataset*"
 
@@ -117,5 +117,5 @@ iris = downloadIrisDataset()
 names = ('sepallength', 'sepalwidth', 'petallength', 'petalwidth', 'species')
 iris
 
-result = "none"
+result = pd.Series(iris).mode()
 result
